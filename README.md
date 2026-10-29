@@ -173,11 +173,7 @@ evidence), [eval/RESULTS.md](eval/RESULTS.md) (benchmarks), [STATUS.md](STATUS.m
 
 ## Credits
 
-- Inspired by [Coucou](https://github.com/louis-cfm/coucou) by Louis Raillé (MIT): the hold-key logic, the
-  voice-dot math, the Notetaker approach, the Claude Code hook protocol and the animation technique are adapted
-  from it. Coucou's name, its Mochi character and its sounds are not used.
-- [FluidAudio](https://github.com/FluidInference/FluidAudio), [MLX Swift](https://github.com/ml-explore/mlx-swift),
-  [Sparkle](https://sparkle-project.org) and the models above. Full licence texts: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Made by Gourav Kumar.
 
 ## Licence
 
