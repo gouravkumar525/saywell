@@ -168,8 +168,7 @@ build/Saywell.app/Contents/MacOS/Saywell --make-call /tmp/call && \
 Layout: `Sources/LocalFlowCore` holds the logic with no UI (rules, prompts, faithfulness check, notes builder,
 Sprig's engine, the Claude Code protocol; all unit-tested). `Sources/LocalFlow` is the app (audio, recognizers,
 models, notch, window). The Swift targets keep the project's original code name, LocalFlow.
-More: [ARCHITECTURE.md](ARCHITECTURE.md), [docs/accuracy.md](docs/accuracy.md) (every accuracy decision and its
-evidence), [eval/RESULTS.md](eval/RESULTS.md) (benchmarks), [STATUS.md](STATUS.md).
+More: [docs/accuracy.md](docs/accuracy.md) (every accuracy decision and the measurement behind it).
 
 ## Credits
 

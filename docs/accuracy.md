@@ -1,9 +1,7 @@
 # Accuracy decisions and the evidence for them
 
-Each rule below is a decision Saywell's code depends on. Each one is backed by a
-measurement in this repo, so you can re-check it when models or macOS change. Dated
-results are in [eval/RESULTS.md](../eval/RESULTS.md), and the full write-ups are in
-[TEST_REPORT.md](../TEST_REPORT.md).
+Each rule below is a decision Saywell's code depends on, with the measurement behind it,
+so it can be re-checked when models or macOS change.
 
 ## Speech recognition
 

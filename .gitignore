@@ -16,3 +16,12 @@ Tools/parakeet-bench/parakeet-tdt-0.6b-v3/
 __pycache__/
 *.pyc
 xcuserdata/
+
+# Working notes, test reports and benchmark tools (kept locally, not published)
+STATUS.md
+NEXT_STEPS.md
+ARCHITECTURE.md
+TEST_REPORT.md
+eval/
+TestCases/results/
+Tools/
