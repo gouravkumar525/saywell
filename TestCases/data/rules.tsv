@@ -1,0 +1,33 @@
+# Rules cleanup cases for `LocalFlow --process`. Tab-separated; use - for empty.
+# id	status (impl | pending:Bx)	input	must (;;-separated: substring, re:regex, =exact)	must_not
+RUL-01	impl	um, hello there, uh, how are you	=Hello there, how are you.	-
+RUL-02	impl	Umm so uhh let's start	=So let's start.	-
+RUL-03	impl	the umbrella caused an error	=The umbrella caused an error.	-
+RUL-04	impl	Let's meet on Monday, no, change that to Tuesday	=Let's meet on Tuesday.	-
+RUL-05	impl	Send it Monday, change that to Tuesday at noon	=Send it Tuesday at noon.	-
+RUL-06	impl	The meeting is at 4 pm, no, change that to 5 pm	=The meeting is at 5 pm.	-
+RUL-07	impl	Hello world, scratch that, good morning team	=Good morning team.	-
+RUL-08	impl	Ping the design team, I meant the platform team	=Ping the platform team.	-
+RUL-09	impl	Hi Sam new paragraph thanks for the update new line talk soon	=Hi Sam\n\nThanks for the update\nTalk soon.	-
+RUL-10	impl	Things to do number one buy milk number two call mom number three ship the app	=Things to do\n1. Buy milk\n2. Call mom\n3. Ship the app	-
+RUL-11	impl	bullet point apples bullet point oranges	=- Apples\n- Oranges	-
+RUL-12	impl	call number one on the list	=Call number one on the list.	-
+RUL-13	impl	number one review the doc number two ship it	1. Review the doc ;; 2. Ship it	document
+RUL-14	impl	this is a test	=This is a test.	-
+RUL-15	impl	Is this working? yes it is!	=Is this working? Yes it is!	-
+RUL-16	impl	hello ,  world , ,	=Hello, world.	-
+RUL-17	impl	   	=	-
+RUL-18	impl	um, hello team, uh, let's meet on Monday, no, change that to Tuesday, new line number one review the doc number two ship it	=Hello team, let's meet on Tuesday\n1. Review the doc\n2. Ship it	-
+RUL-19	impl	I said no to the offer	no to the offer	-
+RUL-20	impl	sorry I'm late for the call	sorry	-
+RUL-21	impl	keep one of them for later	one of them	-
+RUL-22	impl	the error rate is like really high	error ;; really high	-
+RUL-30	pending:B10	it costs twenty five dollars	$25	twenty five
+RUL-31	pending:B10	the rate went up ten percent	10%	ten percent
+RUL-32	pending:B10	we have three point five million users	3.5 million	point five
+RUL-33	pending:B10	lets meet at three thirty pm	re:3:30\s*PM	thirty
+RUL-34	pending:B10	we sold two hundred units	200 units	two hundred
+RUL-35	pending:B10	email me at gourav at gmail dot com	gourav@gmail.com	dot com
+RUL-36	pending:B10	send it to at the rate kv	@kv	at the rate
+RUL-37	pending:B10	we fly to pune sorry no to delhi	delhi	pune
+RUL-38	pending:B10	call me at five no wait six	six	five

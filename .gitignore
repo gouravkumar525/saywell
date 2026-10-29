@@ -1,0 +1,18 @@
+# Build output and packages
+.build/
+build/
+dist/
+*.profraw
+Tools/*/.build/
+Tools/*/build.log
+
+# Downloaded models (fetched on demand, pinned by SHA-256)
+Tools/parakeet-bench/parakeet-tdt-0.6b-v3/
+
+# Local tooling and editor state
+.swiftpm/
+.claude/settings.local.json
+.DS_Store
+__pycache__/
+*.pyc
+xcuserdata/
