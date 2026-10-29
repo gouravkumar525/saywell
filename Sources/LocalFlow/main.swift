@@ -61,6 +61,13 @@ if let path = argValue("--simulate") {
     RunLoop.main.run()
 }
 
+if let prefix = argValue("--dmg-background") {
+    // Scripts/package.sh: the installer window's background.
+    let ok = MainActor.assumeIsolated { DMGArt.write(prefix: prefix) }
+    print(ok ? "wrote \(prefix).png and \(prefix)@2x.png" : "dmg-background: failed")
+    exit(ok ? 0 : 1)
+}
+
 if let dir = argValue("--make-call") {
     NoteCLI.make(dir: dir)
 }

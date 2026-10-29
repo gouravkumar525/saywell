@@ -32,20 +32,18 @@ rules-only cleanup.
 
 ## Install
 
-1. Get `Saywell-1.0.dmg` (or the `.zip`) from the person who shared it.
-   - For a Mac that won't have internet, ask for `Saywell-1.0-with-qwen3.dmg`, which
-     already includes the model.
-2. Open the DMG and **right-click `Install.command` ▸ Open**, then confirm.
-   - Right-click is needed the first time because the package is self-signed, not
-     notarized by Apple.
-   - Alternatively, run `bash /Volumes/Saywell/Install.command` in Terminal.
-3. The installer does the following:
-   - checks the chip and the macOS version
-   - copies `Saywell.app` into `/Applications` (or `~/Applications`)
-   - clears the download quarantine
-   - copies the bundled model, if the package includes one
-   - launches the app
-4. The **Set Up Saywell** window walks you through five steps. Each turns green when it's
+1. Get `Saywell-1.0.dmg` from the person who shared it and double-click it.
+2. **Drag Saywell onto Applications** in the window that opens, then eject the disk.
+3. Open Saywell from Applications.
+   - **First time only:** macOS may say *"Apple could not verify Saywell is free of malware"*.
+     This appears for every app that isn't signed with a paid Apple Developer ID and notarized.
+     Click **Done**, open **System Settings ▸ Privacy & Security**, scroll down to the message
+     about Saywell and click **Open Anyway**, then confirm with your password.
+   - Or, in Terminal: `xattr -dr com.apple.quarantine /Applications/Saywell.app`
+   - For a Mac without internet, ask for the package that includes the model
+     (`Saywell-1.0-with-parakeet.dmg`): it has an `Install.command` that also copies the model.
+     Right-click it ▸ Open the first time.
+4. Sprig asks your name. Then the **Set Up Saywell** window walks you through five steps. Each turns green when it's
    done:
    1. **Microphone & Speech Recognition:** click Allow.
    2. **Accessibility:** click Open Settings and turn Saywell on. If Saywell isn't in

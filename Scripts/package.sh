@@ -99,7 +99,23 @@ for M in ${MODEL//,/ }; do
   done
 done
 
-hdiutil create -quiet -volname "Saywell" -srcfolder "$STAGE" -format UDZO -ov "dist/$NAME.dmg"
+DMGBUILD="build/dmgvenv/bin/dmgbuild"
+if [ -z "$MODEL" ] && [ -x "$DMGBUILD" ]; then
+  # A standard installer window: Saywell + Applications on a designed background,
+  # drag to install. (Bundled-model packages keep the folder with Install.command,
+  # which copies the models into place.)
+  "$APP/Contents/MacOS/Saywell" --dmg-background build/dmg-background
+  tiffutil -cathidpicheck build/dmg-background.png build/dmg-background@2x.png -out build/dmg-background.tiff 2>/dev/null
+  rm -f "dist/$NAME.dmg"
+  "$DMGBUILD" -s Scripts/dist/dmg_settings.py -D app="$STAGE/Saywell.app" -D icon=Resources/Icon/Saywell.icns \
+    -D background=build/dmg-background.tiff "Saywell" "dist/$NAME.dmg" > build/dmgbuild.log
+  # The .dmg file itself shows Saywell's icon in Finder (kept by AirDrop and zip, lost by some uploads).
+  swift -e 'import AppKit; NSWorkspace.shared.setIcon(NSImage(contentsOfFile: CommandLine.arguments[1]), forFile: CommandLine.arguments[2], options: [])' \
+    Resources/Icon/Saywell.icns "dist/$NAME.dmg" 2>/dev/null || true
+else
+  # dmgbuild lives in build/dmgvenv: python3 -m venv build/dmgvenv && build/dmgvenv/bin/pip install dmgbuild
+  hdiutil create -quiet -volname "Saywell" -srcfolder "$STAGE" -format UDZO -ov "dist/$NAME.dmg"
+fi
 ditto -c -k --keepParent "$STAGE" "dist/$NAME.zip"
 shasum -a 256 "dist/$NAME.dmg" "dist/$NAME.zip" | tee "dist/$NAME.sha256"
 du -sh "dist/$NAME.dmg" "dist/$NAME.zip"

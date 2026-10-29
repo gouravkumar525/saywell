@@ -1,7 +1,7 @@
 # Build output and packages
 .build/
-build/
-dist/
+/build/
+/dist/
 *.profraw
 Tools/*/.build/
 Tools/*/build.log
